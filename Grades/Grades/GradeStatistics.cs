@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    public class GradeStatistics
+     public class GradeStatistics
     {
         public GradeStatistics()
         {
@@ -63,7 +63,7 @@ namespace Grades
                     default:
                         result = "Failing";
                         break;
-                 }
+                }
                 return result;
 
             }

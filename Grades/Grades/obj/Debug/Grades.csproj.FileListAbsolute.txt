@@ -5,3 +5,10 @@ C:\Users\Kurt\source\repos\Grades\Grades\obj\Debug\Grades.pdb
 C:\Users\Kurt\source\repos\Grades\Grades\bin\Debug\Grades.exe.config
 C:\Users\Kurt\source\repos\Grades\Grades\bin\Debug\Grades.exe
 C:\Users\Kurt\source\repos\Grades\Grades\obj\Debug\Grades.exe
+C:\Users\Kurt\Documents\PersRepo\myfirstrepo\Grades\Grades\bin\Debug\Grades.exe.config
+C:\Users\Kurt\Documents\PersRepo\myfirstrepo\Grades\Grades\bin\Debug\Grades.exe
+C:\Users\Kurt\Documents\PersRepo\myfirstrepo\Grades\Grades\bin\Debug\Grades.pdb
+C:\Users\Kurt\Documents\PersRepo\myfirstrepo\Grades\Grades\obj\Debug\Grades.csprojAssemblyReference.cache
+C:\Users\Kurt\Documents\PersRepo\myfirstrepo\Grades\Grades\obj\Debug\Grades.csproj.CoreCompileInputs.cache
+C:\Users\Kurt\Documents\PersRepo\myfirstrepo\Grades\Grades\obj\Debug\Grades.exe
+C:\Users\Kurt\Documents\PersRepo\myfirstrepo\Grades\Grades\obj\Debug\Grades.pdb

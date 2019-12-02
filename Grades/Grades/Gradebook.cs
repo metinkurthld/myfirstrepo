@@ -7,21 +7,25 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    public class Gradebook
+     public class Gradebook
     {
 
         public Gradebook()
         {
-            _name = "Empty";
             grades = new List<float>();      
         }
          
-        protected List<float> grades ;
+        public List<float> grades ;
 
         public void AddGrade(float grade)
         {
             grades.Add(grade);
         }
+
+        //public GradeStatistics ComputeStatistics()
+        //{
+        //    return new GradeStatistics();
+        //}
 
         public void WriteGrades(TextWriter destination)
         {

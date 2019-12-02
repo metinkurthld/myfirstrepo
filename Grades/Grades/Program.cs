@@ -16,7 +16,7 @@ namespace Grades
             //GetBookName(book);
             AddGrades(book);
 
-            book.WriteGrades(Console.Out);
+            //book.WriteGrades(Console.Out);
             //book.WriteGrades(); //overloaded
             SaveGrades(book);
 
