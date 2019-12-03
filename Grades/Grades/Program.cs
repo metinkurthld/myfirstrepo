@@ -86,5 +86,14 @@ namespace Grades
         {
             Console.WriteLine(description + ": " + result);
         }
+
+         public void WriteasBytes(int value)
+        {
+            byte[] bytes = BitConverter.GetBytes(value);
+
+            for each (byte b in bytes){
+                Console.WriteLine("0x{0:X2}",b);
+            }
+        }
     }
 }

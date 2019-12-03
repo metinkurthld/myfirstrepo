@@ -107,5 +107,29 @@ namespace Grades.Tests.Types
         {
             number += 1;
         }
+
+        [TestMethod]
+        public void AddDaystoADataTime()
+        {
+            DateTime date = new DateTime(2019, 12, 2);
+            date = date.AddDays(1);
+
+            Assert.AreEqual(3, date.Day);
+        }
+
+        [TestMethod]
+        public void UsingArrays()
+        {
+            float[] grades;
+            grades = new float[3];
+
+            AddGrades(grades); 
+            Assert.AreEqual(89.5f, grades[1]);
+        }
+
+        private void AddGrades(float[] grades) //this works because arrays are reference types. really interesting!!!. 
+        {
+            grades[1] = 89.5f;
+        }
     }
 }
