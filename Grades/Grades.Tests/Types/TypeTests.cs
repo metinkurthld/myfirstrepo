@@ -93,6 +93,7 @@ namespace Grades.Tests.Types
         {
             book = new Gradebook(); //by Ref parameter this is also changing the reference in the input gradebook
             book.Name = "aaaRef Gradebook";
+            book.Name = "";
         }
 
         [TestMethod]
@@ -109,7 +110,7 @@ namespace Grades.Tests.Types
         }
 
         [TestMethod]
-        public void AddDaystoADataTime()
+        public void AddDaystoADateTime()
         {
             DateTime date = new DateTime(2019, 12, 2);
             date = date.AddDays(1);

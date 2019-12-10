@@ -12,7 +12,8 @@ namespace Grades
 
         public Gradebook()
         {
-            grades = new List<float>();      
+            grades = new List<float>();
+            _name = "Empty"; //needs this initialisor in the constructor in order to invoke delegate in Name property.
         }
          
         public List<float> grades ;
@@ -54,16 +55,16 @@ namespace Grades
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("argument can not be null or empty");
-                }
-                    _name = value;
-
-                    if (Name != value)
+                    throw new ArgumentException("argument can not be null or empty");                  
+                }  
+               
+                    if (_name != value)
                     {
                         NameChanged(_name, value);
                     }
+
+                _name = value;
                 
-                ;
             }
         }
         private string _name;

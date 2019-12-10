@@ -13,26 +13,47 @@ namespace Grades
         static void Main(string[] args)
         {
             Gradebook book = new ThrowAwayGradeBook();
+
+            book.NameChanged = new NameChangesDelegate(OnNameChanged);
+            book.NameChanged += new NameChangesDelegate(OnNameChanged2); //overrides onnamechanged if += is not used
             //GetBookName(book);
+
+            book.Name = "Metin's Gradebook";
+            book.Name = "Metin's Gradebook2";
+
             AddGrades(book);
 
             //book.WriteGrades(Console.Out);
             //book.WriteGrades(); //overloaded
             SaveGrades(book);
+            SpeechSynthesizer konus = new SpeechSynthesizer();
+            //konus.Speak("writeresults removes lowest grade in throwawaygradebook.computestatistics so must be executed before writeresults");
+            //konus.Speak("I have added a little wait here. no rush please. nereye gidiyon boyle a lahn");
+            WriteGradesInBytes(book); //writeresults removes lowest grade in throwawaygradebook.computestatistics so must be executed before writeresults
+
 
             WriteResults(book);
 
-            SpeechSynthesizer konus = new SpeechSynthesizer();
-            //konus.Speak("Belma looks sad Metin Mirza");
+            //konus.Speak("writeresults removes lowest grade in throwawaygradebook.computestatistics so must be executed before writeresults");
 
             Console.ReadLine();
 
+        }
+
+        private static void WriteGradesInBytes(Gradebook book)
+        {
+
+            foreach (float grade in book.grades)
+            {
+                WriteasBytes((int)grade);
+            }
         }
 
         private static void WriteResults(Gradebook book)
         {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", (int)stats.AverageGrade);
+            WriteResult("AverageFloat", stats.AverageGrade);
             WriteResult("AverageLetterGrade", stats.LetterGrade);
             WriteResult("AverageLetterDescription", stats.Description);
             WriteResult(stats.Description, stats.LetterGrade);
@@ -84,16 +105,30 @@ namespace Grades
 
         static void WriteResult(string description, float result)
         {
-            Console.WriteLine(description + ": " + result);
+            //Console.WriteLine("{0}:;;;; {1}", description, result);
+            Console.WriteLine($"{description}::: {result}");
         }
 
-         public void WriteasBytes(int value)
+         static void WriteasBytes(int value)
         {
             byte[] bytes = BitConverter.GetBytes(value);
+            //var bytes = BitConverter.GetBytes(value);
 
-            for each (byte b in bytes){
+            foreach (byte b in bytes)
+            {
                 Console.WriteLine("0x{0:X2}",b);
+                //Console.WriteLine(bytes);
             }
+        }
+
+        static void OnNameChanged(string existingName, string newName)
+        {
+            Console.WriteLine($"Gradebook name changed from {existingName} to {newName}");
+        }
+
+        static void OnNameChanged2(string existingName, string newName)
+        {
+            Console.WriteLine("***888");
         }
     }
 }
