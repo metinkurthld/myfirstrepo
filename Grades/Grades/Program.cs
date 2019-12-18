@@ -12,10 +12,31 @@ namespace Grades
     {
         static void Main(string[] args)
         {
+
             Gradebook book = new ThrowAwayGradeBook();
 
-            book.NameChanged = new NameChangesDelegate(OnNameChanged);
-            book.NameChanged += new NameChangesDelegate(OnNameChanged2); //overrides onnamechanged if += is not used
+            book.NameChanged += OnNameChanged;
+
+            try
+            {
+                book.Name = "Metin's new fantastic gradebook";
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            
+            //book.NameChanged += new NameChangedDelegate(OnNameChanged);
+            //book.NameChanged += new NameChangedDelegate(OnNameChanged2); //overrides onnamechanged if += is not used
+             //now working with eventargs
+            //book.NameChanged += OnNameChanged2; //overrides onnamechanged if += is not used
+            //book.NameChanged -= OnNameChanged; removes 1 onNameChanged event from the list if exists any
+           
+
+            //book.NameChanged = null; // this assignment can only be made for delegates but can not be done for events. events accepts only subscribe or unscribe. 
+            //this is why events are preferred over delegated in order to provide protection
+
             //GetBookName(book);
 
             book.Name = "Metin's Gradebook";
@@ -121,14 +142,15 @@ namespace Grades
             }
         }
 
-        static void OnNameChanged(string existingName, string newName)
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine($"Gradebook name changed from {existingName} to {newName}");
+            Console.WriteLine($"Gradebook name changed from {args.ExistingName} to {args.NewName}");
         }
 
+        /*
         static void OnNameChanged2(string existingName, string newName)
         {
             Console.WriteLine("***888");
-        }
+        }*/
     }
 }

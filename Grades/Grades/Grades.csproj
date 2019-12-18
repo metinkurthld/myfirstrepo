@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Gradebook.cs" />
     <Compile Include="GradeStatistics.cs" />
+    <Compile Include="NameChangedEventArgs.cs" />
     <Compile Include="NameChangesDelegate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

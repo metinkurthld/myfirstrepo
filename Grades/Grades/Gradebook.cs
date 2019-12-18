@@ -55,14 +55,18 @@ namespace Grades
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("argument can not be null or empty");                  
+                    throw new ArgumentException("argument can not be null or empty oolum");
+                    //throw new ArgumentNullException();
                 }  
                
                     if (_name != value)
                     {
-                        NameChanged(_name, value);
-                    }
-
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = _name;
+                    args.NewName = value;
+                        //NameChanged(_name, value); old event/delegate type 
+                        NameChanged(this, args); //new event type with eventargs
+                }
                 _name = value;
                 
             }
@@ -85,6 +89,8 @@ namespace Grades
             return stats;
         }
 
-        public NameChangesDelegate NameChanged;
+        //public  NameChangedDelegate NameChanged;
+        public event NameChangedDelegate NameChanged;
+        
     }
 }
