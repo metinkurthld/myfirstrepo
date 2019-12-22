@@ -13,7 +13,7 @@ namespace Grades
         static void Main(string[] args)
         {
 
-            Gradebook book = new ThrowAwayGradeBook();
+            GradeTracker book = new ThrowAwayGradeBook();
 
             book.NameChanged += OnNameChanged;
 
@@ -50,7 +50,7 @@ namespace Grades
             SpeechSynthesizer konus = new SpeechSynthesizer();
             //konus.Speak("writeresults removes lowest grade in throwawaygradebook.computestatistics so must be executed before writeresults");
             //konus.Speak("I have added a little wait here. no rush please. nereye gidiyon boyle a lahn");
-            WriteGradesInBytes(book); //writeresults removes lowest grade in throwawaygradebook.computestatistics so must be executed before writeresults
+            //WriteGradesInBytes(book); //writeresults removes lowest grade in throwawaygradebook.computestatistics so must be executed before writeresults
 
 
             WriteResults(book);
@@ -60,17 +60,17 @@ namespace Grades
             Console.ReadLine();
 
         }
-
-        private static void WriteGradesInBytes(Gradebook book)
+        /*
+        private static void WriteGradesInBytes(GradeTracker book)
         {
 
             foreach (float grade in book.grades)
             {
                 WriteasBytes((int)grade);
             }
-        }
+        }*/
 
-        private static void WriteResults(Gradebook book)
+        private static void WriteResults(GradeTracker book)
         {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", (int)stats.AverageGrade);
@@ -83,7 +83,7 @@ namespace Grades
             Console.WriteLine(stats.HighestGrade);
         }
 
-        private static void SaveGrades(Gradebook book)
+        private static void SaveGrades(GradeTracker book)
         {
             using (StreamWriter outputFile = File.CreateText("grades.txt"))
             {
@@ -91,7 +91,7 @@ namespace Grades
             }
         }
 
-        private static void AddGrades(Gradebook book)
+        private static void AddGrades(GradeTracker book)
         {
             book.AddGrade(91);
             book.AddGrade(89.5f);
